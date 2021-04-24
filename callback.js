@@ -1,4 +1,4 @@
-function enviarEmail(body, sender) {
+function enviarEmail(body, sender, callback) {
     setTimeout(() => {
         console.log(`
             Para: ${sender}
@@ -7,9 +7,11 @@ function enviarEmail(body, sender) {
             --------------------
             De: Luiz Henrique
         `)
+        callback()
     }, 8000)
 }
-console.log("Inicio do envio de email")
-enviarEmail("Olá , seja bem vindo !", "luizhjramos@outlook.com")
-console.log("Seu email foi enviado com sucesso!")
-console.log("Tudo Ok!!")
+
+enviarEmail("Olá , seja bem vindo !", "luizhjramos@outlook.com", () => {
+    console.log("Seu email foi enviado com sucesso!")
+    console.log("Tudo Ok!!")
+})
